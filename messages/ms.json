@@ -1,0 +1,110 @@
+{
+  "nav": {
+    "home": "Utama",
+    "products": "Produk",
+    "sofaSprayer": "Penyembur SOFA",
+    "about": "Tentang Kami",
+    "contact": "Hubungi"
+  },
+  "common": {
+    "enquireForPrice": "Tanya untuk harga",
+    "addToEnquiry": "Tambah ke Pertanyaan",
+    "added": "Ditambah",
+    "addedToEnquiry": "Ditambah ke senarai pertanyaan anda",
+    "viewDetails": "Lihat butiran",
+    "whatsappUs": "WhatsApp kami",
+    "sendViaWhatsapp": "Hantar melalui WhatsApp",
+    "sendViaEmail": "Hantar melalui E-mel",
+    "readMore": "Baca lagi",
+    "learnMore": "Ketahui lagi",
+    "loading": "Memuatkan...",
+    "backToProducts": "Kembali ke produk"
+  },
+  "home": {
+    "heroTagline": "Penyembur pertanian, dibina untuk tahan lama sejak 1949",
+    "heroSubtitle": "Yoon Fatt Industries mengeluarkan rangkaian penyembur galas SOFA yang dipercayai serta alat ganti, dieksport ke seluruh Asia dan Afrika dari kilang kami di Kluang, Johor.",
+    "ctaProducts": "Lihat Produk",
+    "ctaShowcase": "Terokai Penyembur SOFA",
+    "highlightsTitle": "Mengapa memilih kami",
+    "highlightQualityTitle": "Jaminan Kualiti",
+    "highlightQualityBody": "Setiap penyembur dibina dan diuji untuk menahan keadaan ladang yang mencabar.",
+    "highlightProcessTitle": "Proses Pembuatan",
+    "highlightProcessBody": "Pembuatan sendiri di Kluang memberi kami kawalan ketat ke atas kualiti dan bekalan.",
+    "highlightPricingTitle": "Harga Berpatutan",
+    "highlightPricingBody": "Harga terus dari kilang dan alat ganti tahan lama mengekalkan kos pemilikan yang rendah.",
+    "featuredTitle": "Produk pilihan",
+    "featuredSubtitle": "Pilihan daripada katalog penyembur, muncung dan alat ganti kami.",
+    "viewAll": "Lihat semua produk",
+    "heritageTitle": "Sejak 1949",
+    "heritageBody": "Tiga generasi pengalaman pembuatan menyokong setiap produk yang kami hantar.",
+    "contactStripTitle": "Kunjungi kami atau hubungi kami"
+  },
+  "products": {
+    "title": "Produk",
+    "subtitle": "Penyembur, muncung, penyambung dan alat ganti untuk pertanian.",
+    "searchPlaceholder": "Cari produk...",
+    "allCategories": "Semua kategori",
+    "filterByCategory": "Tapis mengikut kategori",
+    "noResults": "Tiada produk dijumpai. Cuba carian atau kategori lain.",
+    "resultsCount": "{count, plural, =0 {Tiada produk} other {# produk}}"
+  },
+  "product": {
+    "specifications": "Spesifikasi",
+    "description": "Penerangan",
+    "variants": "Pilihan",
+    "selectVariant": "Pilih satu pilihan",
+    "quantity": "Kuantiti",
+    "relatedProducts": "Produk berkaitan",
+    "whatsappAboutThis": "WhatsApp kami tentang produk ini",
+    "category": "Kategori",
+    "sku": "SKU"
+  },
+  "enquiry": {
+    "title": "Pertanyaan Anda",
+    "subtitle": "Semak item anda dan hantar pertanyaan. Kami akan balas dengan maklumat stok, harga dan penghantaran.",
+    "empty": "Senarai pertanyaan anda kosong.",
+    "emptyCta": "Lihat produk untuk menambah item.",
+    "cartTitle": "Item",
+    "remove": "Buang",
+    "formTitle": "Butiran anda",
+    "name": "Nama",
+    "company": "Syarikat",
+    "companyOptional": "Syarikat (pilihan)",
+    "country": "Negara",
+    "destination": "Destinasi penghantaran (negara + bandar/pelabuhan)",
+    "remarks": "Catatan",
+    "remarksOptional": "Catatan (pilihan)",
+    "required": "Wajib",
+    "faqTitle": "Soalan Lazim Penghantaran & Pesanan",
+    "successTitle": "Terima kasih — pertanyaan anda telah dihantar",
+    "successBody": "Kami telah menerima pertanyaan anda dan akan menghubungi anda tidak lama lagi.",
+    "successCta": "Teruskan melayari",
+    "sending": "Menghantar...",
+    "cartIndicator": "Pertanyaan",
+    "sendViaWhatsapp": "Hantar melalui WhatsApp",
+    "sendViaEmail": "Hantar melalui E-mel"
+  },
+  "contact": {
+    "title": "Hubungi Kami",
+    "subtitle": "Kami ingin mendengar daripada anda. Hubungi melalui telefon, WhatsApp, e-mel atau borang di bawah.",
+    "phone": "Telefon",
+    "whatsapp": "WhatsApp",
+    "email": "E-mel",
+    "address": "Alamat",
+    "openingHours": "Waktu operasi",
+    "formTitle": "Hantar mesej kepada kami",
+    "message": "Mesej",
+    "send": "Hantar mesej"
+  },
+  "about": {
+    "title": "Tentang Yoon Fatt"
+  },
+  "footer": {
+    "quickLinks": "Pautan pantas",
+    "contact": "Hubungi",
+    "openingHours": "Waktu operasi",
+    "coNo": "No. Syarikat",
+    "rights": "Hak cipta terpelihara.",
+    "shippingFaq": "Soalan Lazim Penghantaran & Pesanan"
+  }
+}

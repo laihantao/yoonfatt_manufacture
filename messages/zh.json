@@ -1,0 +1,110 @@
+{
+  "nav": {
+    "home": "首页",
+    "products": "产品",
+    "sofaSprayer": "SOFA 喷雾器",
+    "about": "关于我们",
+    "contact": "联系我们"
+  },
+  "common": {
+    "enquireForPrice": "询价",
+    "addToEnquiry": "加入询价单",
+    "added": "已加入",
+    "addedToEnquiry": "已加入您的询价单",
+    "viewDetails": "查看详情",
+    "whatsappUs": "WhatsApp 联系我们",
+    "sendViaWhatsapp": "通过 WhatsApp 发送",
+    "sendViaEmail": "通过电邮发送",
+    "readMore": "了解更多",
+    "learnMore": "了解更多",
+    "loading": "加载中...",
+    "backToProducts": "返回产品列表"
+  },
+  "home": {
+    "heroTagline": "自 1949 年以来，坚固耐用的农业喷雾器",
+    "heroSubtitle": "Yoon Fatt Industries 生产广受信赖的 SOFA 系列背负式喷雾器及配件，从柔佛居銮的工厂出口至亚洲与非洲各地。",
+    "ctaProducts": "浏览产品",
+    "ctaShowcase": "了解 SOFA 喷雾器",
+    "highlightsTitle": "为什么选择我们",
+    "highlightQualityTitle": "品质保证",
+    "highlightQualityBody": "每一台喷雾器都经过制造与测试，能够承受严苛的种植园环境。",
+    "highlightProcessTitle": "生产工艺",
+    "highlightProcessBody": "居銮自有工厂生产，让我们对品质与供货有严格的掌控。",
+    "highlightPricingTitle": "价格实惠",
+    "highlightPricingBody": "工厂直销价格加上耐用配件，让您的持有成本保持低廉。",
+    "featuredTitle": "精选产品",
+    "featuredSubtitle": "精选自我们的喷雾器、喷嘴与配件目录。",
+    "viewAll": "查看所有产品",
+    "heritageTitle": "始于 1949 年",
+    "heritageBody": "三代人的制造经验，是我们每一件出厂产品的坚实后盾。",
+    "contactStripTitle": "欢迎莅临或与我们联系"
+  },
+  "products": {
+    "title": "产品",
+    "subtitle": "农业用喷雾器、喷嘴、接头与配件。",
+    "searchPlaceholder": "搜索产品...",
+    "allCategories": "所有类别",
+    "filterByCategory": "按类别筛选",
+    "noResults": "未找到产品。请尝试其他搜索或类别。",
+    "resultsCount": "{count, plural, =0 {没有产品} other {# 件产品}}"
+  },
+  "product": {
+    "specifications": "规格参数",
+    "description": "产品描述",
+    "variants": "选项",
+    "selectVariant": "请选择一个选项",
+    "quantity": "数量",
+    "relatedProducts": "相关产品",
+    "whatsappAboutThis": "就此产品 WhatsApp 联系我们",
+    "category": "类别",
+    "sku": "货号"
+  },
+  "enquiry": {
+    "title": "您的询价单",
+    "subtitle": "确认您的项目并发送询价。我们将回复库存、价格与运送详情。",
+    "empty": "您的询价单是空的。",
+    "emptyCta": "浏览产品以添加项目。",
+    "cartTitle": "项目",
+    "remove": "移除",
+    "formTitle": "您的资料",
+    "name": "姓名",
+    "company": "公司",
+    "companyOptional": "公司（选填）",
+    "country": "国家",
+    "destination": "运送目的地（国家 + 城市/港口）",
+    "remarks": "备注",
+    "remarksOptional": "备注（选填）",
+    "required": "必填",
+    "faqTitle": "运送与订购常见问题",
+    "successTitle": "谢谢您 — 询价已发送",
+    "successBody": "我们已收到您的询价，将尽快与您联系。",
+    "successCta": "继续浏览",
+    "sending": "发送中...",
+    "cartIndicator": "询价单",
+    "sendViaWhatsapp": "通过 WhatsApp 发送",
+    "sendViaEmail": "通过电邮发送"
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "欢迎与我们联系。可通过电话、WhatsApp、电邮或下方表格联络。",
+    "phone": "电话",
+    "whatsapp": "WhatsApp",
+    "email": "电邮",
+    "address": "地址",
+    "openingHours": "营业时间",
+    "formTitle": "给我们留言",
+    "message": "留言内容",
+    "send": "发送留言"
+  },
+  "about": {
+    "title": "关于 Yoon Fatt"
+  },
+  "footer": {
+    "quickLinks": "快速链接",
+    "contact": "联系方式",
+    "openingHours": "营业时间",
+    "coNo": "公司编号",
+    "rights": "版权所有。",
+    "shippingFaq": "运送与订购常见问题"
+  }
+}
