@@ -105,6 +105,9 @@
     "openingHours": "营业时间",
     "coNo": "公司编号",
     "rights": "版权所有。",
-    "shippingFaq": "运送与订购常见问题"
+    "shippingFaq": "运送与订购常见问题",
+    "officeTel": "办公室电话",
+    "fax": "传真",
+    "salesContact": "销售联系 (WhatsApp)"
   }
 }

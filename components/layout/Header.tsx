@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
-import type { CompanyInfo } from '@/lib/types';
 import LanguageSwitcher from './LanguageSwitcher';
 import EnquiryCartIndicator from './EnquiryCartIndicator';
 
@@ -16,7 +15,7 @@ const navItems = [
   { href: '/contact', key: 'contact' },
 ] as const;
 
-export default function Header({ company }: { company: CompanyInfo }) {
+export default function Header() {
   const t = useTranslations('nav');
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -56,12 +55,6 @@ export default function Header({ company }: { company: CompanyInfo }) {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href={`tel:${company.phone.replace(/\s/g, '')}`}
-            className="hidden text-sm font-semibold text-brand-700 lg:block"
-          >
-            {company.phone}
-          </a>
           <LanguageSwitcher />
           <EnquiryCartIndicator />
           <button

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { waLink } from '@/lib/whatsapp';
 import type { CompanyInfo } from '@/lib/types';
 
 export default function Footer({ company }: { company: CompanyInfo }) {
@@ -44,10 +45,34 @@ export default function Footer({ company }: { company: CompanyInfo }) {
           <h3 className="text-sm font-semibold text-neutral-900">{t('footer.contact')}</h3>
           <ul className="mt-3 space-y-2 text-sm text-neutral-600">
             <li>{company.address}</li>
-            <li><a href={`tel:${company.phone.replace(/\s/g, '')}`} className="hover:text-brand-600">{company.phone}</a></li>
-            {company.fax && <li>Fax: {company.fax}</li>}
+            <li>
+              <span className="text-neutral-400">{t('footer.officeTel')}: </span>
+              <a href={`tel:${company.phone.replace(/\s/g, '')}`} className="hover:text-brand-600">{company.phone}</a>
+            </li>
+            {company.fax && (
+              <li>
+                <span className="text-neutral-400">{t('footer.fax')}: </span>
+                {company.fax}
+              </li>
+            )}
+            {company.whatsappNumber && (
+              <li>
+                <span className="text-neutral-400">{t('footer.salesContact')}: </span>
+                <a
+                  href={waLink(company.whatsappNumber)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-600"
+                >
+                  {company.whatsappNumber}
+                </a>
+              </li>
+            )}
             {company.email && !company.email.startsWith('{{') && (
-              <li><a href={`mailto:${company.email}`} className="hover:text-brand-600">{company.email}</a></li>
+              <li>
+                <span className="text-neutral-400">{t('contact.email')}: </span>
+                <a href={`mailto:${company.email}`} className="hover:text-brand-600">{company.email}</a>
+              </li>
             )}
           </ul>
           <h3 className="mt-5 text-sm font-semibold text-neutral-900">{t('footer.openingHours')}</h3>

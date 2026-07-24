@@ -49,7 +49,7 @@ export default async function LocaleLayout({
           <ToastProvider>
           <EnquiryCartProvider>
             <div className="flex min-h-screen flex-col">
-              <Header company={company} />
+              <Header />
               <main className="flex-1">{children}</main>
               <Footer company={company} />
             </div>

@@ -39,18 +39,18 @@ export default async function HomePage({
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-900/85 via-brand-900/60 to-brand-900/30" />
-        <div className="container-page relative py-24 md:py-36">
+        <div className="container-page relative py-16 sm:py-24 md:py-36">
           <div className="max-w-2xl">
             <span className="mb-3 inline-block w-fit rounded-full bg-brand-600/70 px-3 py-1 text-xs font-semibold uppercase tracking-wide">
               {t('heritageTitle')}
             </span>
-            <h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
+            <h1 className="text-2xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
               {t('heroTagline')}
             </h1>
-            <p className="mt-5 max-w-lg text-base text-brand-50 sm:text-lg">
+            <p className="mt-4 max-w-lg text-sm text-brand-50 sm:mt-5 sm:text-lg">
               {t('heroSubtitle')}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
               <Link href="/products" className="btn bg-white text-brand-800 hover:bg-brand-50">
                 {t('ctaProducts')}
               </Link>
@@ -63,9 +63,9 @@ export default async function HomePage({
       </section>
 
       {/* Highlights */}
-      <section className="container-page py-16">
+      <section className="container-page py-12 sm:py-16">
         <h2 className="text-center text-2xl font-bold text-neutral-900">{t('highlightsTitle')}</h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-3 sm:gap-6">
           {highlights.map((h) => (
             <div key={h.title} className="rounded-lg border border-neutral-200 bg-white p-6 text-center">
               <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-brand-50 text-xl text-brand-600">

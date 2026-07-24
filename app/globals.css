@@ -34,3 +34,10 @@ body {
     @apply btn bg-red-600 text-white hover:bg-red-700;
   }
 }
+
+/* Move the sonner toast close button (✕) to the top-right corner. */
+[data-sonner-toast] [data-close-button] {
+  left: auto !important;
+  right: 0 !important;
+  transform: translate(35%, -35%) !important;
+}
