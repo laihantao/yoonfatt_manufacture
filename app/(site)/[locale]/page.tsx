@@ -26,6 +26,19 @@ export default async function HomePage({
     { title: t('highlightPricingTitle'), body: t('highlightPricingBody'), icon: '₮' },
   ];
 
+  const stats = [
+    { value: t('statFoundedValue'), label: t('statFoundedLabel') },
+    { value: t('statManufacturerValue'), label: t('statManufacturerLabel') },
+    { value: t('statProductsValue'), label: t('statProductsLabel') },
+    { value: t('statCoverageValue'), label: t('statCoverageLabel') },
+  ];
+
+  const orderSteps = [
+    { n: 1, title: t('orderStep1Title'), body: t('orderStep1Body'), icon: '🛒' },
+    { n: 2, title: t('orderStep2Title'), body: t('orderStep2Body'), icon: '💬' },
+    { n: 3, title: t('orderStep3Title'), body: t('orderStep3Body'), icon: '✅' },
+  ];
+
   return (
     <>
       {/* Hero — full-width field imagery with dark overlay for readability */}
@@ -59,6 +72,18 @@ export default async function HomePage({
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Trust stat bar */}
+      <section className="border-b border-neutral-200 bg-brand-50">
+        <div className="container-page grid grid-cols-2 divide-neutral-200 py-6 sm:grid-cols-4 sm:divide-x">
+          {stats.map((s) => (
+            <div key={s.label} className="px-2 py-3 text-center sm:py-0">
+              <div className="text-2xl font-bold text-brand-700 sm:text-3xl">{s.value}</div>
+              <div className="mt-1 text-xs text-neutral-600 sm:text-sm">{s.label}</div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -99,6 +124,36 @@ export default async function HomePage({
           </div>
         </section>
       )}
+
+      {/* How to order */}
+      <section className="container-page py-12 sm:py-16">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-2xl font-bold text-neutral-900">{t('howToOrderTitle')}</h2>
+          <p className="mt-2 text-sm text-neutral-600 sm:text-base">{t('howToOrderSubtitle')}</p>
+        </div>
+        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          {orderSteps.map((step, i) => (
+            <div key={step.n} className="relative rounded-lg border border-neutral-200 bg-white p-6 text-center">
+              <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-brand-600 text-xl text-white">
+                {step.icon}
+              </div>
+              <div className="mt-3 text-xs font-semibold uppercase tracking-wide text-brand-600">
+                {t('howToOrderTitle')} · {step.n}
+              </div>
+              <h3 className="mt-1 font-semibold text-neutral-900">{step.title}</h3>
+              <p className="mt-2 text-sm text-neutral-600">{step.body}</p>
+              {i < orderSteps.length - 1 && (
+                <span className="absolute -right-3 top-1/2 hidden -translate-y-1/2 text-2xl text-brand-300 sm:block">
+                  →
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Link href="/products" className="btn-primary">{t('ctaProducts')}</Link>
+        </div>
+      </section>
 
       {/* About brief */}
       <section className="container-page grid gap-8 py-16 md:grid-cols-2">
