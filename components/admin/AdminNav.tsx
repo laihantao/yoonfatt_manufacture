@@ -24,7 +24,7 @@ const items: NavItem[] = [
   },
 ];
 
-export default function AdminNav() {
+export default function AdminNav({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
   const isActive = (href: string, exact?: boolean) =>
     exact ? pathname === href : pathname.startsWith(href);
@@ -46,6 +46,7 @@ export default function AdminNav() {
                 <Link
                   key={c.href}
                   href={c.href}
+                  onClick={onNavigate}
                   className={`block rounded px-3 py-1.5 text-sm ${
                     isActive(c.href, c.exact)
                       ? 'bg-brand-600 text-white'
@@ -61,6 +62,7 @@ export default function AdminNav() {
           <Link
             key={it.href}
             href={it.href}
+            onClick={onNavigate}
             className={`block rounded px-3 py-2 text-sm ${
               isActive(it.href, it.exact)
                 ? 'bg-brand-600 text-white'

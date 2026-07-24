@@ -129,15 +129,15 @@ export default function ProductsTable({
           placeholder="Search name or description..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className={`${select} w-64 flex-shrink-0`}
+          className={`${select} w-full sm:w-64`}
         />
-        <select value={category} onChange={(e) => setCategory(e.target.value)} className={select}>
+        <select value={category} onChange={(e) => setCategory(e.target.value)} className={`${select} flex-1 sm:flex-none`}>
           <option value="">All categories</option>
           {categories.map((c) => (
             <option key={c.slug} value={c.slug}>{c.name}</option>
           ))}
         </select>
-        <select value={status} onChange={(e) => setStatus(e.target.value as StatusFilter)} className={select}>
+        <select value={status} onChange={(e) => setStatus(e.target.value as StatusFilter)} className={`${select} flex-1 sm:flex-none`}>
           <option value="all">All statuses</option>
           <option value="active">Active</option>
           <option value="hidden">Hidden</option>

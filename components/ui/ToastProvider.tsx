@@ -1,54 +1,30 @@
 'use client';
 
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useState,
-} from 'react';
+import { Toaster, toast as sonnerToast } from 'sonner';
 
-type ToastType = 'success' | 'error';
-type Toast = { id: number; message: string; type: ToastType };
-
-const ToastContext = createContext<{
-  toast: (message: string, type?: ToastType) => void;
-} | null>(null);
-
+// Thin wrapper around `sonner` so existing `useToast()` call sites keep the
+// same API: toast(message, 'success' | 'error'). sonner handles the visuals,
+// manual close (X button), swipe-to-dismiss, stacking, and mobile layout.
 export function ToastProvider({ children }: { children: React.ReactNode }) {
-  const [toasts, setToasts] = useState<Toast[]>([]);
-
-  const toast = useCallback((message: string, type: ToastType = 'success') => {
-    const id = Date.now() + Math.random();
-    setToasts((prev) => [...prev, { id, message, type }]);
-    setTimeout(() => {
-      setToasts((prev) => prev.filter((t) => t.id !== id));
-    }, 3500);
-  }, []);
-
   return (
-    <ToastContext.Provider value={{ toast }}>
+    <>
       {children}
-      {/* Toast stack */}
-      <div className="pointer-events-none fixed right-4 top-4 z-[100] flex w-80 flex-col gap-2">
-        {toasts.map((t) => (
-          <div
-            key={t.id}
-            role="status"
-            className={`pointer-events-auto flex items-start gap-2 rounded-lg px-4 py-3 text-sm font-medium text-white shadow-lg ${
-              t.type === 'success' ? 'bg-brand-600' : 'bg-red-600'
-            }`}
-          >
-            <span aria-hidden>{t.type === 'success' ? '✓' : '⚠'}</span>
-            <span className="flex-1">{t.message}</span>
-          </div>
-        ))}
-      </div>
-    </ToastContext.Provider>
+      <Toaster
+        position="top-right"
+        richColors
+        closeButton
+        expand
+        toastOptions={{ duration: 3500 }}
+      />
+    </>
   );
 }
 
+type ToastType = 'success' | 'error';
+
 export function useToast() {
-  const ctx = useContext(ToastContext);
-  if (!ctx) throw new Error('useToast must be used within ToastProvider');
-  return ctx.toast;
+  return (message: string, type: ToastType = 'success') => {
+    if (type === 'error') sonnerToast.error(message);
+    else sonnerToast.success(message);
+  };
 }
