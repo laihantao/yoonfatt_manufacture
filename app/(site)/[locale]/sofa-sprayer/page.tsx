@@ -1,9 +1,26 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
 import { getCompanyInfo, getProduct } from '@/lib/data';
+import { pageMetadata } from '@/lib/seo';
 import { waLink } from '@/lib/whatsapp';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'home' });
+  return pageMetadata({
+    locale,
+    path: '/sofa-sprayer',
+    title: 'SOFA Knapsack Sprayer',
+    description: t('heroSubtitle'),
+  });
+}
 
 // MVP: static showcase. The GSAP scroll-driven experience is a later phase;
 // the anatomy content below is already JSON-driven so it can be reused.

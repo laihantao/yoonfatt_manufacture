@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
 import { getArticle } from '@/lib/data';
+import { SITE_URL, SITE_NAME, pageMetadata } from '@/lib/seo';
 import ArticleBlocks from '@/components/resources/ArticleBlocks';
 
 export async function generateMetadata({
@@ -14,7 +15,14 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const article = await getArticle(slug, locale as Locale);
   if (!article) return {};
-  return { title: article.title, description: article.excerpt || undefined };
+  return pageMetadata({
+    locale,
+    path: `/resources/${slug}`,
+    title: article.title,
+    description: article.excerpt || undefined,
+    images: article.coverUrl ? [article.coverUrl] : undefined,
+    type: 'article',
+  });
 }
 
 export default async function ArticlePage({
@@ -31,8 +39,27 @@ export default async function ArticlePage({
   const article = await getArticle(slug, locale as Locale);
   if (!article) notFound();
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.excerpt || undefined,
+    image: article.coverUrl || undefined,
+    datePublished: article.createdAt,
+    url: `${SITE_URL}/${locale}/resources/${article.slug}`,
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png` },
+    },
+  };
+
   return (
     <article className="container-page max-w-3xl py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <Link href="/resources" className="mb-6 inline-block text-sm text-neutral-500 hover:text-brand-600">
         ← {t('backToResources')}
       </Link>

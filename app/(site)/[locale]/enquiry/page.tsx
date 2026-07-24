@@ -1,8 +1,14 @@
+import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
 import { getCompanyInfo, getShippingFaq } from '@/lib/data';
 import EnquiryClient from '@/components/enquiry/EnquiryClient';
 import FaqAccordion from '@/components/enquiry/FaqAccordion';
+
+// The enquiry cart is user-specific — keep it out of search indexes.
+export const metadata: Metadata = {
+  robots: { index: false, follow: true },
+};
 
 export default async function EnquiryPage({
   params,

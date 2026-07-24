@@ -1,8 +1,20 @@
+import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
 import { getCategories, getProducts } from '@/lib/data';
+import { pageMetadata } from '@/lib/seo';
 import ProductCard from '@/components/product/ProductCard';
 import ProductFilters from '@/components/product/ProductFilters';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'products' });
+  return pageMetadata({ locale, path: '/products', title: t('title'), description: t('subtitle') });
+}
 
 export default async function ProductsPage({
   params,
