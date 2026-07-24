@@ -154,6 +154,44 @@ async function seedAdminUser() {
   }
 }
 
+async function seedSampleArticle() {
+  const slug = 'choosing-the-right-spray-nozzle';
+  const img = 'https://placehold.co/1200x800/27532e/ffffff.png?text=Spray+Nozzle+Guide';
+  const { data: art, error } = await supabase
+    .from('articles')
+    .upsert(
+      { slug, category: 'product-guide', cover_path: img, is_published: true, sort_order: 1 },
+      { onConflict: 'slug' },
+    )
+    .select('id')
+    .single();
+  if (error) {
+    if (/relation .* does not exist/i.test(error.message)) {
+      console.warn('• Skipping demo article — run migration 0002_articles.sql first.');
+      return;
+    }
+    throw error;
+  }
+  await supabase.from('article_translations').upsert(
+    {
+      article_id: art.id,
+      locale: 'en',
+      title: 'Choosing the Right Spray Nozzle',
+      excerpt: 'A quick guide to matching nozzle type to your crop and spraying job.',
+      body: [
+        { type: 'heading', text: 'Why the nozzle matters' },
+        { type: 'paragraph', text: 'The nozzle decides your droplet size, spray pattern and coverage. The right choice saves chemical and gives better results — the wrong one wastes both.' },
+        { type: 'image', path: img, caption: 'Different nozzles produce different spray patterns.' },
+        { type: 'heading', text: 'Common types' },
+        { type: 'paragraph', text: 'Fan jet nozzles give an even band for broadcast spraying. Cone/mist nozzles give fine coverage for foliar work. Adjustable nozzles let you switch between a fine mist and a solid jet.' },
+        { type: 'paragraph', text: 'Not sure which fits your sprayer? We make the full range and can advise — just send an enquiry.' },
+      ],
+    },
+    { onConflict: 'article_id,locale' },
+  );
+  console.log('✓ Demo article ready: /resources/' + slug);
+}
+
 async function main() {
   console.log('Seeding Supabase...');
   await seedCategoriesTable();
@@ -165,6 +203,11 @@ async function main() {
     console.log('• Skipping demo products (pass --demo-products to include)');
   }
   await seedSettings();
+  if (process.argv.includes('--demo-articles')) {
+    await seedSampleArticle();
+  } else {
+    console.log('• Skipping demo article (pass --demo-articles to include)');
+  }
   await seedAdminUser();
   console.log('Done.');
 }
