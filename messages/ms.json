@@ -3,8 +3,27 @@
     "home": "Utama",
     "products": "Produk",
     "sofaSprayer": "Penyembur SOFA",
+    "resources": "Sumber",
     "about": "Tentang Kami",
     "contact": "Hubungi"
+  },
+  "resources": {
+    "title": "Sumber & Panduan",
+    "subtitle": "Panduan produk, rujukan alat ganti dan tip penyelenggaraan untuk membantu anda memilih peralatan yang betul dan memastikannya berfungsi.",
+    "homeTitle": "Panduan & Sumber",
+    "homeSubtitle": "Ketahui tentang penyembur kami, alat ganti, dan cara mengekalkannya.",
+    "viewAll": "Lihat semua sumber",
+    "readMore": "Baca panduan",
+    "empty": "Tiada sumber diterbitkan lagi. Sila semak kembali.",
+    "allCategories": "Semua",
+    "backToResources": "Kembali ke sumber",
+    "relatedCta": "Mencari alat ganti atau penyembur? Layari produk kami dan hantar pertanyaan.",
+    "cat": {
+      "product-guide": "Panduan Produk",
+      "spare-parts": "Panduan Alat Ganti",
+      "maintenance": "Penyelenggaraan & Penyelesaian Masalah",
+      "how-to": "Cara & Pemasangan"
+    }
   },
   "common": {
     "enquireForPrice": "Tanya untuk harga",

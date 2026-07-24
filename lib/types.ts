@@ -65,6 +65,37 @@ export type EnquiryItem = {
   quantity: number;
 };
 
+// ── Articles / Resources ──────────────────────────────────────
+
+export const ARTICLE_CATEGORIES = [
+  'product-guide',
+  'spare-parts',
+  'maintenance',
+  'how-to',
+] as const;
+export type ArticleCategory = (typeof ARTICLE_CATEGORIES)[number];
+
+export type ArticleImage = { path: string; caption?: string };
+
+export type ArticleBlock =
+  | { type: 'heading'; text: string }
+  | { type: 'paragraph'; text: string }
+  | { type: 'image'; path: string; caption?: string }
+  | { type: 'gallery'; images: ArticleImage[] }
+  | { type: 'video'; provider: 'file' | 'youtube'; src: string };
+
+export type Article = {
+  id: string;
+  slug: string;
+  category: string;
+  coverUrl: string | null;
+  title: string; // resolved for locale (EN fallback)
+  excerpt: string; // resolved
+  blocks: ArticleBlock[]; // resolved
+  isPublished: boolean;
+  createdAt: string;
+};
+
 export type EnquiryPayload = {
   name: string;
   company?: string | null;

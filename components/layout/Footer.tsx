@@ -34,6 +34,7 @@ export default function Footer({ company }: { company: CompanyInfo }) {
           <ul className="mt-3 space-y-2 text-sm text-neutral-600">
             <li><Link href="/products" className="hover:text-brand-600">{t('nav.products')}</Link></li>
             <li><Link href="/sofa-sprayer" className="hover:text-brand-600">{t('nav.sofaSprayer')}</Link></li>
+            <li><Link href="/resources" className="hover:text-brand-600">{t('nav.resources')}</Link></li>
             <li><Link href="/about" className="hover:text-brand-600">{t('nav.about')}</Link></li>
             <li><Link href="/contact" className="hover:text-brand-600">{t('nav.contact')}</Link></li>
             <li><Link href="/enquiry" className="hover:text-brand-600">{t('footer.shippingFaq')}</Link></li>

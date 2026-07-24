@@ -2,8 +2,9 @@ import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
-import { getAboutContent, getCompanyInfo, getFeaturedProducts } from '@/lib/data';
+import { getAboutContent, getArticles, getCompanyInfo, getFeaturedProducts } from '@/lib/data';
 import ProductCard from '@/components/product/ProductCard';
+import ArticleCard from '@/components/resources/ArticleCard';
 
 export default async function HomePage({
   params,
@@ -14,11 +15,13 @@ export default async function HomePage({
   setRequestLocale(locale);
   const t = await getTranslations('home');
 
-  const [featured, company, about] = await Promise.all([
+  const [featured, company, about, articles] = await Promise.all([
     getFeaturedProducts(locale as Locale),
     getCompanyInfo(),
     getAboutContent(locale as Locale),
+    getArticles(locale as Locale, { limit: 3 }),
   ]);
+  const tr = await getTranslations('resources');
 
   const highlights = [
     { title: t('highlightQualityTitle'), body: t('highlightQualityBody'), icon: '✓' },
@@ -187,6 +190,28 @@ export default async function HomePage({
           </div>
         </div>
       </section>
+
+      {/* Resources strip */}
+      {articles.length > 0 && (
+        <section className="bg-neutral-50 py-12 sm:py-16">
+          <div className="container-page">
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <h2 className="text-2xl font-bold text-neutral-900">{tr('homeTitle')}</h2>
+                <p className="mt-1 text-sm text-neutral-600">{tr('homeSubtitle')}</p>
+              </div>
+              <Link href="/resources" className="hidden text-sm font-semibold text-brand-700 hover:underline sm:block">
+                {tr('viewAll')} →
+              </Link>
+            </div>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {articles.map((a) => (
+                <ArticleCard key={a.id} article={a} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Contact strip */}
       <section className="bg-brand-800 py-12 text-white">

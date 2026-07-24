@@ -3,8 +3,27 @@
     "home": "Home",
     "products": "Products",
     "sofaSprayer": "SOFA Sprayer",
+    "resources": "Resources",
     "about": "About",
     "contact": "Contact"
+  },
+  "resources": {
+    "title": "Resources & Guides",
+    "subtitle": "Product guides, spare-part references and maintenance tips to help you choose the right equipment and keep it running.",
+    "homeTitle": "Guides & Resources",
+    "homeSubtitle": "Learn about our sprayers, spare parts, and how to keep them running.",
+    "viewAll": "View all resources",
+    "readMore": "Read guide",
+    "empty": "No resources published yet. Check back soon.",
+    "allCategories": "All",
+    "backToResources": "Back to resources",
+    "relatedCta": "Looking for a part or a sprayer? Browse our products and send an enquiry.",
+    "cat": {
+      "product-guide": "Product Guides",
+      "spare-parts": "Spare Parts Guide",
+      "maintenance": "Maintenance & Troubleshooting",
+      "how-to": "How-to & Assembly"
+    }
   },
   "common": {
     "enquireForPrice": "Enquire for price",

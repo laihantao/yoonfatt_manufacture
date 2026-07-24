@@ -3,8 +3,27 @@
     "home": "首页",
     "products": "产品",
     "sofaSprayer": "SOFA 喷雾器",
+    "resources": "资源中心",
     "about": "关于我们",
     "contact": "联系我们"
+  },
+  "resources": {
+    "title": "资源与指南",
+    "subtitle": "产品指南、配件参考与保养贴士，帮您选对设备并让它持续运转。",
+    "homeTitle": "指南与资源",
+    "homeSubtitle": "了解我们的喷雾器、配件，以及如何让它们持久运转。",
+    "viewAll": "查看所有资源",
+    "readMore": "阅读指南",
+    "empty": "暂无已发布的资源，敬请期待。",
+    "allCategories": "全部",
+    "backToResources": "返回资源中心",
+    "relatedCta": "需要配件或喷雾器？浏览我们的产品并发送询价。",
+    "cat": {
+      "product-guide": "产品指南",
+      "spare-parts": "配件指南",
+      "maintenance": "保养与故障排除",
+      "how-to": "操作与组装"
+    }
   },
   "common": {
     "enquireForPrice": "询价",

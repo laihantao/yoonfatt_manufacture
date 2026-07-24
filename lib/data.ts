@@ -1,5 +1,7 @@
 import type {
   AboutContent,
+  Article,
+  ArticleBlock,
   Category,
   CompanyInfo,
   FaqItem,
@@ -16,7 +18,7 @@ import {
   type SeedProduct,
 } from '@/lib/seed/data';
 import { createSupabasePublicClient } from '@/lib/supabase/public';
-import { publicImageUrl } from '@/lib/storage';
+import { publicImageUrl, articleMediaUrl } from '@/lib/storage';
 
 // ── Data access layer ─────────────────────────────────────────
 // Reads from Supabase when configured; otherwise (or on any error)
@@ -241,4 +243,73 @@ export async function getShippingFaq(locale: Locale): Promise<FaqItem[]> {
   const s = await getSetting<Record<Locale, FaqItem[]>>('shipping_faq');
   const source = s ?? seedShippingFaq;
   return source[locale] ?? source.en;
+}
+
+// ── Articles / Resources ──────────────────────────────────────
+
+const ARTICLE_SELECT = `
+  id, slug, category, cover_path, is_published, created_at, sort_order,
+  article_translations ( locale, title, excerpt, body )
+`;
+
+function mapArticleRow(row: any, locale: Locale): Article {
+  const trs = (row.article_translations ?? []) as any[];
+  const localeTr = trs.find((t) => t.locale === locale);
+  const enTr = trs.find((t) => t.locale === 'en');
+  const tr = localeTr && !emptyish(localeTr.title) ? localeTr : (enTr ?? localeTr ?? {});
+  // Blocks fall back to EN as a whole if this locale has no blocks.
+  const blocks: ArticleBlock[] =
+    (Array.isArray(tr.body) && tr.body.length ? tr.body : enTr?.body) ?? [];
+
+  return {
+    id: row.id,
+    slug: row.slug,
+    category: row.category ?? 'product-guide',
+    coverUrl: row.cover_path ? articleMediaUrl(row.cover_path) : null,
+    title: (tr.title as string) ?? enTr?.title ?? row.slug,
+    excerpt: (tr.excerpt as string) ?? enTr?.excerpt ?? '',
+    blocks,
+    isPublished: !!row.is_published,
+    createdAt: row.created_at,
+  };
+}
+
+export async function getArticles(
+  locale: Locale,
+  opts: { category?: string; limit?: number } = {},
+): Promise<Article[]> {
+  const sb = createSupabasePublicClient();
+  if (!sb) return [];
+  let query = sb
+    .from('articles')
+    .select(ARTICLE_SELECT)
+    .eq('is_published', true)
+    .order('sort_order', { ascending: true })
+    .order('created_at', { ascending: false });
+  if (opts.category) query = query.eq('category', opts.category);
+  if (opts.limit) query = query.limit(opts.limit);
+
+  const { data, error } = await query;
+  if (error) {
+    // Table may not exist yet (migration not run) — fail soft.
+    console.error('[data] articles fetch failed:', error.message);
+    return [];
+  }
+  return (data ?? []).map((row) => mapArticleRow(row, locale));
+}
+
+export async function getArticle(slug: string, locale: Locale): Promise<Article | null> {
+  const sb = createSupabasePublicClient();
+  if (!sb) return null;
+  const { data, error } = await sb
+    .from('articles')
+    .select(ARTICLE_SELECT)
+    .eq('slug', slug)
+    .eq('is_published', true)
+    .maybeSingle();
+  if (error || !data) {
+    if (error) console.error('[data] article fetch failed:', error.message);
+    return null;
+  }
+  return mapArticleRow(data, locale);
 }
