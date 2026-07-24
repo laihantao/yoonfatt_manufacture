@@ -244,22 +244,25 @@ export const seedAboutContent: Record<Locale, { paragraphs: string[] }> = {
   en: {
     paragraphs: [
       'Founded in 1949, Yoon Fatt Industries (M) Sdn. Bhd. is a Malaysian manufacturer of agriculture sprayers and spare parts, best known for our flagship SOFA brand of knapsack sprayers.',
-      'From our factory in Kluang, Johor, we manufacture and export durable, affordable spraying equipment to customers across Asia and Africa.',
-      'Three generations of manufacturing experience stand behind every product — built to last, backed by long-lasting spare part support.',
+      'We are a true manufacturer — not a reseller. Every SOFA sprayer is manufactured and assembled in our own factory in Kluang, Johor, and we make the complete range of spare parts ourselves, from tanks and pumps down to the smallest washers and O-rings.',
+      'That end-to-end capability means a worn part never turns your sprayer into scrap: whatever component you need, we make it and stock it. It keeps your equipment running for years and your total cost of ownership low.',
+      'Three generations of manufacturing experience stand behind every product we build, serving farms, estates and dealers across East and West Malaysia.',
     ],
   },
   ms: {
     paragraphs: [
       'Ditubuhkan pada tahun 1949, Yoon Fatt Industries (M) Sdn. Bhd. ialah pengeluar penyembur pertanian dan alat ganti dari Malaysia, terkenal dengan jenama utama kami SOFA untuk penyembur galas.',
-      'Dari kilang kami di Kluang, Johor, kami mengeluarkan dan mengeksport peralatan penyembur yang tahan lama dan berpatutan kepada pelanggan di seluruh Asia dan Afrika.',
-      'Tiga generasi pengalaman pembuatan menyokong setiap produk — dibina untuk tahan lama, disokong dengan bekalan alat ganti yang berkekalan.',
+      'Kami ialah pengeluar sebenar — bukan peniaga semula. Setiap penyembur SOFA dibuat dan dipasang di kilang kami sendiri di Kluang, Johor, dan kami membuat rangkaian alat ganti yang lengkap sendiri, daripada tangki dan pam sehingga gelang dan O-ring yang terkecil.',
+      'Keupayaan hujung ke hujung ini bermakna bahagian yang haus tidak akan menjadikan penyembur anda besi buruk: apa sahaja komponen yang anda perlukan, kami membuat dan menyimpannya. Ia memastikan peralatan anda berfungsi selama bertahun-tahun dan kos pemilikan anda rendah.',
+      'Tiga generasi pengalaman pembuatan menyokong setiap produk yang kami hasilkan, berkhidmat untuk ladang, estet dan pengedar di seluruh Malaysia Timur dan Barat.',
     ],
   },
   zh: {
     paragraphs: [
       'Yoon Fatt Industries (M) Sdn. Bhd. 创立于 1949 年，是马来西亚的农业喷雾器及配件制造商，以旗舰品牌 SOFA 背负式喷雾器最为人熟知。',
-      '我们从柔佛居銮的工厂制造并出口耐用、实惠的喷雾设备，服务遍及亚洲与非洲的客户。',
-      '三代人的制造经验是每一件产品的后盾 —— 坚固耐用，并有持久的配件供应作支持。',
+      '我们是真正的制造商 —— 而非转售商。每一台 SOFA 喷雾器都在柔佛居銮的自有工厂制造与组装，从水箱、泵浦到最小的垫圈与 O 型圈，整套配件都由我们自己生产。',
+      '这种端到端的能力意味着：一个易损件绝不会让您的喷雾器沦为废铁 —— 无论您需要哪个零件，我们都能自制并备货。让您的设备用上多年，持有成本保持低廉。',
+      '三代人的制造经验，是我们每一件产品的后盾，服务遍及东马与西马的农场、园丘与经销商。',
     ],
   },
 };
